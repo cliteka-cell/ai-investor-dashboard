@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio · AI Investor</title>
+<meta name="description" content="Simulated paper-trading positions, P&amp;amp;L, and recent trades. No real money.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="mobile-bar">
+  <span class="sidebar-brand-name">AI Investor</span>
+  <button class="mobile-toggle">menu</button>
+</div>
+<div class="shell">
+  <nav class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-line">$ whoami</div>
+      <div class="sidebar-brand-name">AI Investor</div>
+      <div class="sidebar-brand-sub">local-LLM research system</div>
+    </div>
+    <a class="nav-link" href="index.html"><span class="prompt">$</span>Home</a><a class="nav-link active" href="portfolio.html"><span class="prompt">$</span>Portfolio</a><a class="nav-link" href="macro.html"><span class="prompt">$</span>Macro</a><a class="nav-link" href="screener-stocks.html"><span class="prompt">$</span>Screener</a><div class="nav-sub"><a class="nav-link" href="screener-stocks.html"><span class="prompt">&gt;</span>Stocks</a><a class="nav-link" href="screener-smallcap.html"><span class="prompt">&gt;</span>Small-Cap</a><a class="nav-link" href="screener-crypto.html"><span class="prompt">&gt;</span>Crypto</a></div><a class="nav-link" href="earnings.html"><span class="prompt">$</span>Earnings</a><a class="nav-link" href="signals.html"><span class="prompt">$</span>Signals</a><a class="nav-link" href="calibration.html"><span class="prompt">$</span>Calibration</a><a class="nav-link" href="about.html"><span class="prompt">$</span>About</a>
+  </nav>
+  <main class="main">
+    <div class="page-header">
+      <div class="cmd-line"><span class="prompt">kerem@ai-investor:~$</span> <span class="cmd">$ portfolio --positions --ledger</span></div>
+      <div class="page-title">Portfolio</div>
+      <div class="page-desc">Simulated paper-trading positions, P&amp;L, and recent trades. No real money.</div>
+    </div>
+    
+    <div class="stat-row">
+      <div class="stat-box"><div class="stat-label">Total Value</div><div class="stat-value">$1,027.32</div></div>
+      <div class="stat-box"><div class="stat-label">P&amp;L</div><div class="stat-value pos-text">+27.32 (+2.73%)</div>
+        <div class="stat-sub">vs $1,000.00 contributed</div></div>
+      <div class="stat-box"><div class="stat-label">Cash</div><div class="stat-value">$168.24</div></div>
+      <div class="stat-box"><div class="stat-label">Started</div><div class="stat-value" style="font-size:16px;">2026-07-09</div>
+        <div class="stat-sub">$1000 seed + $1000/mo</div></div>
+    </div>
+    <div class="section-label">Positions</div>
+    <div class="table-scroll"><table>
+      <thead><tr><th>Position</th><th>Conviction</th><th class="num">Shares</th><th class="num">Price</th>
+      <th class="num">Value</th><th class="num">Weight</th><th class="num">P&amp;L</th></tr></thead>
+      <tbody><tr>
+          <td>STT <span class="muted-text" style="font-size:11px;">(large-cap)</span></td>
+          <td><span class="tag pos">HIGH</span></td>
+          <td class="num">1.445659</td>
+          <td class="num">$187.22</td>
+          <td class="num">$270.66</td>
+          <td class="num">26%</td>
+          <td class="num pos-text">+10.21 (+3.9%)</td>
+        </tr><tr>
+          <td>DGX <span class="muted-text" style="font-size:11px;">(large-cap)</span></td>
+          <td><span class="tag pos">HIGH</span></td>
+          <td class="num">0.854985</td>
+          <td class="num">$237.50</td>
+          <td class="num">$203.06</td>
+          <td class="num">20%</td>
+          <td class="num pos-text">+3.84 (+1.9%)</td>
+        </tr><tr>
+          <td>GRMN <span class="muted-text" style="font-size:11px;">(large-cap)</span></td>
+          <td><span class="tag pos">HIGH</span></td>
+          <td class="num">0.631317</td>
+          <td class="num">$309.65</td>
+          <td class="num">$195.49</td>
+          <td class="num">19%</td>
+          <td class="num neg-text">-0.78 (-0.4%)</td>
+        </tr><tr>
+          <td>HPQ <span class="muted-text" style="font-size:11px;">(large-cap)</span></td>
+          <td><span class="tag pos">HIGH</span></td>
+          <td class="num">6.531448</td>
+          <td class="num">$29.07</td>
+          <td class="num">$189.87</td>
+          <td class="num">18%</td>
+          <td class="num neg-text">-6.40 (-3.3%)</td>
+        </tr></tbody></table></div>
+    <div class="section-label">Thesis Drift on Held Positions</div>
+    <p class="empty-state">No held position has a stop-loss or thesis-drift flag this run.</p>
+    <div class="section-label">Recent Ledger</div>
+    <div class="table-scroll"><table>
+      <thead><tr><th>Action</th><th>Ticker</th><th class="num">Amount</th><th>Reason</th><th>Date</th></tr></thead>
+      <tbody><tr><td class="pos-text">CONTRIBUTION</td><td>--</td><td class="num">$1,000.00</td><td>Monthly contribution (2026-08), simulating ongoing savings.</td><td>2026-08-12</td></tr><tr><td class="pos-text">BUY</td><td>GRMN</td><td class="num">$196.27</td>
+            <td class="muted-text" style="font-size:12px;">New conviction pick, sized by conviction + inverse volatility.</td><td>2026-08-09</td></tr><tr><td class="pos-text">BUY</td><td>HPQ</td><td class="num">$196.27</td>
+            <td class="muted-text" style="font-size:12px;">New conviction pick, sized by conviction + inverse volatility.</td><td>2026-08-09</td></tr><tr><td class="neg-text">SELL</td><td>DXCM</td><td class="num">$202.32</td>
+            <td class="muted-text" style="font-size:12px;">Downgraded from high to medium conviction.</td><td>2026-08-09</td></tr><tr><td class="neg-text">SELL</td><td>NTAP</td><td class="num">$187.71</td>
+            <td class="muted-text" style="font-size:12px;">Downgraded from high to medium conviction.</td><td>2026-08-09</td></tr><tr><td class="pos-text">BUY</td><td>DXCM</td><td class="num">$199.22</td>
+            <td class="muted-text" style="font-size:12px;">New conviction pick, sized by conviction + inverse volatility.</td><td>2026-08-02</td></tr><tr><td class="pos-text">BUY</td><td>DGX</td><td class="num">$199.22</td>
+            <td class="muted-text" style="font-size:12px;">New conviction pick, sized by conviction + inverse volatility.</td><td>2026-08-02</td></tr><tr><td class="neg-text">SELL</td><td>CF</td><td class="num">$166.30</td>
+            <td class="muted-text" style="font-size:12px;">Downgraded from high to medium conviction.</td><td>2026-08-02</td></tr><tr><td class="neg-text">SELL</td><td>DVA</td><td class="num">$260.47</td>
+            <td class="muted-text" style="font-size:12px;">Downgraded from high to medium conviction.</td><td>2026-08-02</td></tr><tr><td class="pos-text">BUY</td><td>CF</td><td class="num">$166.14</td>
+            <td class="muted-text" style="font-size:12px;">New conviction pick, sized by conviction + inverse volatility.</td><td>2026-07-26</td></tr><tr><td class="pos-text">BUY</td><td>NTAP</td><td class="num">$166.14</td>
+            <td class="muted-text" style="font-size:12px;">New conviction pick, sized by conviction + inverse volatility.</td><td>2026-07-26</td></tr><tr><td class="neg-text">SELL</td><td>JBHT</td><td class="num">$254.35</td>
+            <td class="muted-text" style="font-size:12px;">Downgraded from high to medium conviction.</td><td>2026-07-26</td></tr><tr><td class="pos-text">BUY</td><td>JBHT</td><td class="num">$257.09</td>
+            <td class="muted-text" style="font-size:12px;">New conviction pick, sized by conviction + inverse volatility.</td><td>2026-07-19</td></tr><tr><td class="pos-text">BUY</td><td>DVA</td><td class="num">$257.09</td>
+            <td class="muted-text" style="font-size:12px;">New conviction pick, sized by conviction + inverse volatility.</td><td>2026-07-19</td></tr><tr><td class="neg-text">SELL</td><td>AIZ</td><td class="num">$161.73</td>
+            <td class="muted-text" style="font-size:12px;">Dropped from the large-cap screener entirely (was high conviction).</td><td>2026-07-19</td></tr></tbody></table></div>
+    <div class="page-footer">
+      <div class="last-updated"><span class="dot"></span>Last updated 12 Aug 2026 07:27 UTC<span class="cursor-block"></span></div>
+      <p style="margin-top:10px;">Research only -- this system never executes a trade, broker keys stay empty on purpose.
+      Full architecture and honest results: <a href="https://github.com/cliteka-cell/ai-investor-writeup" target="_blank">ai-investor-writeup</a>.
+      Source is private (touches personal data).</p>
+    </div>
+  </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

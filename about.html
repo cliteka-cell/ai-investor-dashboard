@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About · AI Investor</title>
+<meta name="description" content="What this system is and is not.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="mobile-bar">
+  <span class="sidebar-brand-name">AI Investor</span>
+  <button class="mobile-toggle">menu</button>
+</div>
+<div class="shell">
+  <nav class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-line">$ whoami</div>
+      <div class="sidebar-brand-name">AI Investor</div>
+      <div class="sidebar-brand-sub">local-LLM research system</div>
+    </div>
+    <a class="nav-link" href="index.html"><span class="prompt">$</span>Home</a><a class="nav-link" href="portfolio.html"><span class="prompt">$</span>Portfolio</a><a class="nav-link" href="macro.html"><span class="prompt">$</span>Macro</a><a class="nav-link" href="screener-stocks.html"><span class="prompt">$</span>Screener</a><div class="nav-sub"><a class="nav-link" href="screener-stocks.html"><span class="prompt">&gt;</span>Stocks</a><a class="nav-link" href="screener-smallcap.html"><span class="prompt">&gt;</span>Small-Cap</a><a class="nav-link" href="screener-crypto.html"><span class="prompt">&gt;</span>Crypto</a></div><a class="nav-link" href="earnings.html"><span class="prompt">$</span>Earnings</a><a class="nav-link" href="signals.html"><span class="prompt">$</span>Signals</a><a class="nav-link" href="calibration.html"><span class="prompt">$</span>Calibration</a><a class="nav-link active" href="about.html"><span class="prompt">$</span>About</a>
+  </nav>
+  <main class="main">
+    <div class="page-header">
+      <div class="cmd-line"><span class="prompt">kerem@ai-investor:~$</span> <span class="cmd">$ cat about.md</span></div>
+      <div class="page-title">About</div>
+      <div class="page-desc">What this system is and is not.</div>
+    </div>
+    
+    <div class="term-window"><div class="term-titlebar"><div class="term-dots"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span></div>
+    <span class="term-titlebar-label">about.md</span></div><div class="term-body">
+    <p style="font-size:13px;line-height:1.8;">AI Investor is a self-hosted investment research system running entirely on local hardware
+    (Ollama, RTX 3090 -- no external LLM API, no cloud inference, no paid data feeds). It screens a 600+ security universe across three
+    tracks (large-cap, Russell 2000, crypto), writes and archives investment theses with the local reasoning model, manages a simulated
+    paper portfolio with real risk controls (stop-loss, position-weight caps, inverse-volatility sizing), and grades its own track record
+    against passive benchmarks so it's clear whether it's actually finding anything.</p>
+    <p style="font-size:13px;line-height:1.8;margin-top:14px;"><b style="color:var(--neg);">This system never executes a trade.</b>
+    Broker API keys stay empty in <code>.env</code> on purpose. It proposes and analyzes; a human approves and executes manually,
+    if ever. The paper portfolio is local bookkeeping against real market prices.</p>
+    <p style="font-size:13px;line-height:1.8;margin-top:14px;">Full architecture writeup, engineering decisions, and the honest
+    (including unflattering) results: <a href="https://github.com/cliteka-cell/ai-investor-writeup" target="_blank" style="color:var(--accent2);">github.com/cliteka-cell/ai-investor-writeup</a>.
+    Source code is private -- it touches personal financial data and a Telegram session.</p>
+    </div></div>
+    <div class="page-footer">
+      <div class="last-updated"><span class="dot"></span>Last updated 12 Aug 2026 07:27 UTC<span class="cursor-block"></span></div>
+      <p style="margin-top:10px;">Research only -- this system never executes a trade, broker keys stay empty on purpose.
+      Full architecture and honest results: <a href="https://github.com/cliteka-cell/ai-investor-writeup" target="_blank">ai-investor-writeup</a>.
+      Source is private (touches personal data).</p>
+    </div>
+  </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

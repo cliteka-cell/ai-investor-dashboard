@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home · AI Investor</title>
+<meta name="description" content="At-a-glance snapshot of the paper portfolio, macro regime, and this week's top pick.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="mobile-bar">
+  <span class="sidebar-brand-name">AI Investor</span>
+  <button class="mobile-toggle">menu</button>
+</div>
+<div class="shell">
+  <nav class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-line">$ whoami</div>
+      <div class="sidebar-brand-name">AI Investor</div>
+      <div class="sidebar-brand-sub">local-LLM research system</div>
+    </div>
+    <a class="nav-link active" href="index.html"><span class="prompt">$</span>Home</a><a class="nav-link" href="portfolio.html"><span class="prompt">$</span>Portfolio</a><a class="nav-link" href="macro.html"><span class="prompt">$</span>Macro</a><a class="nav-link" href="screener-stocks.html"><span class="prompt">$</span>Screener</a><div class="nav-sub"><a class="nav-link" href="screener-stocks.html"><span class="prompt">&gt;</span>Stocks</a><a class="nav-link" href="screener-smallcap.html"><span class="prompt">&gt;</span>Small-Cap</a><a class="nav-link" href="screener-crypto.html"><span class="prompt">&gt;</span>Crypto</a></div><a class="nav-link" href="earnings.html"><span class="prompt">$</span>Earnings</a><a class="nav-link" href="signals.html"><span class="prompt">$</span>Signals</a><a class="nav-link" href="calibration.html"><span class="prompt">$</span>Calibration</a><a class="nav-link" href="about.html"><span class="prompt">$</span>About</a>
+  </nav>
+  <main class="main">
+    <div class="page-header">
+      <div class="cmd-line"><span class="prompt">kerem@ai-investor:~$</span> <span class="cmd">$ portfolio --status</span></div>
+      <div class="page-title">Home</div>
+      <div class="page-desc">At-a-glance snapshot of the paper portfolio, macro regime, and this week's top pick.</div>
+    </div>
+    
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-label">Portfolio Value</div>
+        <div class="stat-value">$1,027.32</div>
+        <div class="stat-sub"><span class="pos-text">+27.32 (+2.73%)</span> vs $1,000.00 contributed</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Cash</div>
+        <div class="stat-value">$168.24</div>
+        <div class="stat-sub">4 open positions</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Macro Regime</div>
+        <div class="stat-value" style="font-size:16px;">Leaning Risk-On</div>
+        <div class="stat-sub">composite +0.62</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Top Conviction Pick</div>
+        <div class="stat-value" style="font-size:16px;">HPQ</div>
+        <div class="stat-sub">Technology</div>
+      </div>
+    </div><div class="term-window"><div class="term-titlebar"><div class="term-dots"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span></div>
+    <span class="term-titlebar-label">readme.txt</span></div><div class="term-body">
+    <p style="font-size:13px;line-height:1.7;">Self-hosted investment research system running entirely on local hardware
+    (Ollama, no external LLM API). A three-layer screener covers large-cap, Russell 2000, and crypto; a living paper
+    portfolio tests the picks against real prices with real risk controls; a calibration job grades the screener's own
+    track record against passive benchmarks, honestly. <b style="color:var(--neg);">This system never executes a trade</b> --
+    broker API keys stay empty in <code>.env</code> on purpose. Everything below is simulation.</p>
+    </div></div>
+    <div class="page-footer">
+      <div class="last-updated"><span class="dot"></span>Last updated 12 Aug 2026 07:27 UTC<span class="cursor-block"></span></div>
+      <p style="margin-top:10px;">Research only -- this system never executes a trade, broker keys stay empty on purpose.
+      Full architecture and honest results: <a href="https://github.com/cliteka-cell/ai-investor-writeup" target="_blank">ai-investor-writeup</a>.
+      Source is private (touches personal data).</p>
+    </div>
+  </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
