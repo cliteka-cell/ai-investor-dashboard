@@ -216,6 +216,7 @@ html.sidebar-collapsed .sidebar-toggle { left: 14px; }
   border-radius: var(--radius);
   margin-bottom: 24px;
   overflow: hidden;
+  max-width: 860px;
 }
 .term-titlebar {
   display: flex;
@@ -338,7 +339,7 @@ tr:hover td { background: rgba(255,255,255,0.015); }
   padding: 16px 18px;
 }
 .data-block .section-label { margin: 0 0 10px; }
-.data-block.full { grid-column: 1 / -1; }
+.data-block.full { grid-column: 1 / -1; max-width: 900px; }
 
 /* ── THESIS / SIGNAL CARD ───────────────────────────────────────────── */
 .card-grid {
