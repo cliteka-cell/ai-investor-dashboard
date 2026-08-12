@@ -293,7 +293,8 @@ tr:hover td { background: rgba(255,255,255,0.015); }
   flex-direction: column;
   gap: 20px;
 }
-.paired-row .data-block { margin-bottom: 0; }
+.stack .data-block { margin-bottom: 0; }
+.split-2col > .stack { min-width: 0; }
 @media (max-width: 880px) {
   .paired-row { grid-template-columns: 1fr; }
 }
