@@ -271,11 +271,15 @@ tr:hover td { background: rgba(255,255,255,0.015); }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  align-items: start;
+  align-items: stretch;
   margin-bottom: 12px;
 }
-.split-2col .term-window { max-width: none; margin-bottom: 0; }
-.split-2col > .data-block { margin-bottom: 0; }
+/* Bare single blocks (not wrapped via stack_blocks()) opt out of the
+   stretch -- growing THEIR own border directly is the same dead-space-
+   inside-a-box problem as the .paired-row lone-stack case below. Only a
+   .stack (which distributes the extra height itself) should stretch. */
+.split-2col .term-window { max-width: none; margin-bottom: 0; align-self: start; }
+.split-2col > .data-block { margin-bottom: 0; align-self: start; }
 @media (max-width: 880px) {
   .split-2col { grid-template-columns: 1fr; }
 }
@@ -297,10 +301,13 @@ tr:hover td { background: rgba(255,255,255,0.015); }
 /* align-items:stretch so both columns fill the row's full height (set by
    whichever side is naturally taller) instead of each hugging its own
    content -- a shorter column trailing off mid-row is the "Tetris" look.
-   The stack inside then spreads that leftover height as equal gaps
-   between its own boxes (space-between) so its last box's bottom lands
-   on the same line as the taller column's; a lone box (nothing to put
-   space "between") grows to fill instead (:only-child). */
+   A multi-item stack spreads the leftover height as equal gaps between
+   its own boxes (space-between), pinning its last box's bottom to the
+   row bottom. A stack with only ONE box has no "between" to use, so it
+   gets pushed flush to the bottom instead (flex-end) -- that keeps the
+   lone box at its own natural height (no dead space stretched inside its
+   border, just invisible space above it) while its bottom edge still
+   lands on the same line as the taller side. Applies to .split-2col too. */
 .paired-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -308,11 +315,13 @@ tr:hover td { background: rgba(255,255,255,0.015); }
   align-items: stretch;
   margin-bottom: 20px;
 }
-.paired-row .stack {
+.paired-row .stack,
+.split-2col .stack {
   justify-content: space-between;
 }
-.paired-row .stack > .data-block:only-child {
-  flex: 1;
+.paired-row .stack:has(> .data-block:only-child),
+.split-2col .stack:has(> .data-block:only-child) {
+  justify-content: flex-end;
 }
 .stack {
   display: flex;
