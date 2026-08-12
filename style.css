@@ -280,6 +280,24 @@ tr:hover td { background: rgba(255,255,255,0.015); }
   .split-2col { grid-template-columns: 1fr; }
 }
 
+/* ── PAIRED ROW (1 big block left, a stack of small ones right) ──────── */
+.paired-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 20px;
+}
+.paired-row .stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.paired-row .data-block { margin-bottom: 0; }
+@media (max-width: 880px) {
+  .paired-row { grid-template-columns: 1fr; }
+}
+
 /* ── BLOCK COLUMNS (masonry) ────────────────────────────────────────── */
 /* Several smaller data blocks (a one-line Rates stat, a 3-row Options
    table, etc.) stacking one-per-full-width-row was pure vertical scroll
