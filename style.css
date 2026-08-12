@@ -114,9 +114,7 @@ a { color: inherit; text-decoration: none; }
   padding: 32px 40px 80px;
 }
 
-/* Long-form narrative prose gets its own readable line-length cap so it
-   doesn't stretch edge-to-edge on wide monitors. */
-.narrative p { max-width: 820px; }
+.narrative p { max-width: none; }
 
 @media (max-width: 880px) {
   .topnav { flex-wrap: wrap; height: auto; padding: 12px 18px; }
@@ -187,11 +185,9 @@ a { color: inherit; text-decoration: none; }
 .term-body.tight { padding: 0; }
 /* Standalone term-windows that sit above/beside full-width content (e.g.
    Calibration's intro above its 3-column grid, About's lone box) --
-   stretch the BOX to match that width, but keep the prose itself capped
-   at a readable line length instead of running edge-to-edge, same
-   treatment .narrative p already gets. */
+   stretch the BOX to match that width. */
 .term-window.full { max-width: none; }
-.term-window.full .term-body p { max-width: 820px; }
+.term-window.full .term-body p { max-width: none; }
 
 /* ── STAT ROW ───────────────────────────────────────────────────────── */
 .stat-row {
@@ -289,6 +285,17 @@ tr:hover td { background: rgba(255,255,255,0.015); }
 .split-2col > .data-block { margin-bottom: 0; align-self: start; }
 @media (max-width: 880px) {
   .split-2col { grid-template-columns: 1fr; }
+}
+
+/* ── 1:3 SPLIT (Earnings: Upcoming narrow left, Post-Earnings wide right) ── */
+.split-1-3 {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 20px;
+  align-items: start;
+}
+@media (max-width: 880px) {
+  .split-1-3 { grid-template-columns: 1fr; }
 }
 
 /* ── EQUAL 3-COLUMN (1:1:1, e.g. Signals/Calibration) ─────────────────── */
@@ -432,6 +439,11 @@ details.conv-group .card-grid { margin-top: 10px; }
   margin-bottom: 20px;
   align-items: start;
 }
+/* Forced exactly 3 across (not auto-fit) for Post-Earnings Review inside
+   the wide side of .split-1-3, tapering down at narrower widths. */
+.card-grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1400px) { .card-grid.cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 880px) { .card-grid.cols-3 { grid-template-columns: 1fr; } }
 .thesis-card {
   border: 1px solid var(--border);
   border-radius: var(--radius);
