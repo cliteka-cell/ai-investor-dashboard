@@ -19,7 +19,6 @@
   --warn:    #d29922;
   --radius:  10px;
   --mono:    'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
-  --sidebar-w: 240px;
 }
 
 html { background: var(--bg); }
@@ -45,117 +44,14 @@ body::after {
 
 a { color: inherit; text-decoration: none; }
 
-/* ── LAYOUT SHELL ───────────────────────────────────────────────────── */
-.shell {
+/* ── LAYOUT SHELL: horizontal top nav, no sidebar, no collapse ───────── */
+.topnav {
   display: flex;
-  min-height: 100vh;
-}
-
-.sidebar {
-  width: var(--sidebar-w);
-  flex-shrink: 0;
-  border-right: 1px solid var(--border);
-  padding: 20px 0;
-  position: fixed;
-  top: 0; left: 0; bottom: 0;
-  overflow-y: auto;
-  background: var(--bg);
-  z-index: 50;
-  transition: transform 0.18s ease;
-}
-
-.sidebar-brand {
-  padding: 0 20px 18px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 14px;
-}
-.sidebar-brand-name {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text);
-}
-.sidebar-brand-sub {
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 4px;
-}
-
-/* ── SIDEBAR COLLAPSE (desktop) ─────────────────────────────────────── */
-.sidebar-toggle {
-  position: fixed;
-  top: 18px;
-  left: calc(var(--sidebar-w) - 14px);
-  width: 26px; height: 26px;
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  color: var(--muted);
-  cursor: pointer;
-  font-family: var(--mono);
-  font-size: 12px;
-  line-height: 1;
-  z-index: 55;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: left 0.18s ease, color 0.15s, border-color 0.15s;
-}
-.sidebar-toggle:hover { color: var(--text); border-color: #444; }
-
-html.sidebar-collapsed .sidebar { transform: translateX(-100%); }
-html.sidebar-collapsed .main { margin-left: 0; }
-html.sidebar-collapsed .sidebar-toggle { left: 14px; }
-
-@media (max-width: 880px) {
-  .sidebar-toggle { display: none; }
-}
-
-.nav-group-label {
-  font-size: 10px;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 14px 20px 6px;
-}
-
-.nav-link {
-  display: block;
-  padding: 7px 20px;
-  font-size: 13px;
-  color: var(--muted);
-  border-left: 2px solid transparent;
-  transition: color 0.15s, border-color 0.15s, background 0.15s;
-}
-.nav-link:hover { color: var(--text); background: rgba(255,255,255,0.02); }
-.nav-link.active {
-  color: var(--accent2);
-  border-left-color: var(--accent2);
-  background: rgba(0,208,132,0.05);
-}
-.nav-link .prompt { color: var(--muted); margin-right: 4px; }
-.nav-link.active .prompt { color: var(--accent2); }
-
-.nav-sub .nav-link { padding-left: 34px; font-size: 12px; }
-
-.main {
-  margin-left: var(--sidebar-w);
-  flex: 1;
-  min-width: 0;
-  padding: 32px 40px 80px;
-  transition: margin-left 0.18s ease;
-}
-
-/* Tables/cards/stat-boxes use the full fluid width above, but long-form
-   narrative prose gets its own readable line-length cap so it doesn't
-   stretch edge-to-edge on wide monitors. */
-.narrative p { max-width: 820px; }
-
-/* ── MOBILE NAV TOGGLE ──────────────────────────────────────────────── */
-.mobile-bar {
-  display: none;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 18px;
+  gap: 20px;
+  padding: 0 32px;
+  height: 58px;
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
@@ -163,7 +59,47 @@ html.sidebar-collapsed .sidebar-toggle { left: 14px; }
   backdrop-filter: blur(10px);
   z-index: 60;
 }
+
+.topnav-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  white-space: nowrap;
+}
+.topnav-brand-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+.topnav-brand-sub {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.topnav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 6px 11px;
+  font-size: 13px;
+  color: var(--muted);
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: color 0.15s, background 0.15s;
+}
+.nav-link:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+.nav-link.active { color: var(--accent2); background: rgba(0,208,132,0.08); }
+.nav-link .prompt { color: var(--muted); margin-right: 3px; }
+.nav-link.active .prompt { color: var(--accent2); }
+
 .mobile-toggle {
+  display: none;
   background: none;
   border: 1px solid var(--border);
   color: var(--text);
@@ -174,15 +110,26 @@ html.sidebar-collapsed .sidebar-toggle { left: 14px; }
   font-size: 13px;
 }
 
+.main {
+  padding: 32px 40px 80px;
+}
+
+/* Long-form narrative prose gets its own readable line-length cap so it
+   doesn't stretch edge-to-edge on wide monitors. */
+.narrative p { max-width: 820px; }
+
 @media (max-width: 880px) {
-  .mobile-bar { display: flex; }
-  .sidebar {
-    transform: translateX(-100%);
-    transition: transform 0.2s ease;
-    width: 260px;
+  .topnav { flex-wrap: wrap; height: auto; padding: 12px 18px; }
+  .topnav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 10px;
   }
-  .sidebar.open { transform: translateX(0); box-shadow: 4px 0 30px rgba(0,0,0,0.5); }
-  .main { margin-left: 0; padding: 20px 18px 60px; }
+  .topnav-links.open { display: flex; }
+  .mobile-toggle { display: block; }
+  .main { padding: 20px 18px 60px; }
 }
 
 /* ── PAGE HEADER ────────────────────────────────────────────────────── */
@@ -319,27 +266,48 @@ tr:hover td { background: rgba(255,255,255,0.015); }
 }
 .section-label:first-child { margin-top: 0; }
 
-/* ── BLOCK GRID ─────────────────────────────────────────────────────── */
-/* Groups several smaller data blocks side by side instead of stacking
-   each as its own full-width section -- a page with 6-8 short sections
-   (a one-line Rates stat, a 3-row Options table, etc.) was pure vertical
-   scroll with the space beside each block sitting empty. Auto-fit lets
-   as many blocks as fit sit in a row, based on their own natural size. */
-.block-grid {
+/* ── SPLIT 2-COLUMN (headline table | narrative log, 1:1) ────────────── */
+.split-2col {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   align-items: start;
-  margin-bottom: 8px;
+  margin-bottom: 20px;
+}
+.split-2col .term-window { max-width: none; margin-bottom: 0; }
+.split-2col > .data-block { margin-bottom: 0; }
+@media (max-width: 880px) {
+  .split-2col { grid-template-columns: 1fr; }
+}
+
+/* ── BLOCK COLUMNS (masonry) ────────────────────────────────────────── */
+/* Several smaller data blocks (a one-line Rates stat, a 3-row Options
+   table, etc.) stacking one-per-full-width-row was pure vertical scroll
+   with empty space beside each one. CSS multi-column lets the browser
+   balance blocks across 2 columns by height automatically -- a bigger
+   block (e.g. Sector Breadth) naturally fills one column while 2-3
+   smaller ones stack to match its height in the other, without having to
+   hand-compute which blocks pair together. */
+.block-grid {
+  column-count: 2;
+  column-gap: 20px;
 }
 .data-block {
   background: var(--bg2);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 16px 18px;
+  margin-bottom: 20px;
+  break-inside: avoid;
+  display: inline-block;
+  width: 100%;
 }
 .data-block .section-label { margin: 0 0 10px; }
-.data-block.full { grid-column: 1 / -1; max-width: 900px; }
+.data-block.full { column-span: all; max-width: 900px; }
+
+@media (max-width: 880px) {
+  .block-grid { column-count: 1; }
+}
 
 /* ── THESIS / SIGNAL CARD ───────────────────────────────────────────── */
 .card-grid {

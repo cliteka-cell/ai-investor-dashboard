@@ -1,25 +1,11 @@
-// Mobile sidebar toggle + desktop sidebar collapse (persisted across page
-// loads via localStorage, since this is a static multi-page site, not an
-// SPA -- every nav click is a full reload). The collapsed-state class
-// itself is applied earlier, inline in <head>, to avoid a flash of the
-// expanded sidebar before this file loads.
+// Mobile nav toggle only -- everything else on this site is static content
+// rendered server-side by publish_site.py, no client-side data fetching.
 document.addEventListener('DOMContentLoaded', () => {
-  const mobileToggle = document.querySelector('.mobile-toggle');
-  const sidebar = document.querySelector('.sidebar');
-  if (mobileToggle && sidebar) {
-    mobileToggle.addEventListener('click', () => sidebar.classList.toggle('open'));
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => sidebar.classList.remove('open'));
-    });
-  }
-
-  const desktopToggle = document.querySelector('.sidebar-toggle');
-  if (desktopToggle) {
-    desktopToggle.addEventListener('click', () => {
-      const collapsed = document.documentElement.classList.toggle('sidebar-collapsed');
-      localStorage.setItem('sidebar-collapsed', collapsed ? 'true' : 'false');
-      desktopToggle.textContent = collapsed ? '»' : '«';
-    });
-    desktopToggle.textContent = document.documentElement.classList.contains('sidebar-collapsed') ? '»' : '«';
-  }
+  const toggle = document.querySelector('.mobile-toggle');
+  const links = document.querySelector('.topnav-links');
+  if (!toggle || !links) return;
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => links.classList.remove('open'));
+  });
 });

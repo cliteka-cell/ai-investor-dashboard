@@ -6,22 +6,19 @@
 <title>Small-Cap · AI Investor</title>
 <meta name="description" content="This week's Russell 2000 deep-thesis screen.">
 <link rel="stylesheet" href="style.css">
-<script>if(localStorage.getItem('sidebar-collapsed')==='true'){document.documentElement.classList.add('sidebar-collapsed')}</script>
 </head>
 <body>
-<div class="mobile-bar">
-  <span class="sidebar-brand-name">AI Investor</span>
+<header class="topnav">
+  <div class="topnav-brand">
+    <span class="topnav-brand-name">AI Investor</span>
+    <span class="topnav-brand-sub">local-LLM research system</span>
+  </div>
   <button class="mobile-toggle">menu</button>
-</div>
-<div class="shell">
-  <button class="sidebar-toggle" title="Toggle sidebar">&laquo;</button>
-  <nav class="sidebar">
-    <div class="sidebar-brand">
-      <div class="sidebar-brand-name">AI Investor</div>
-      <div class="sidebar-brand-sub">local-LLM research system</div>
-    </div>
-    <a class="nav-link" href="index.html"><span class="prompt">$</span>Briefing</a><a class="nav-link" href="macro.html"><span class="prompt">$</span>Macro</a><a class="nav-link" href="screener-stocks.html"><span class="prompt">$</span>Screener</a><div class="nav-sub"><a class="nav-link" href="screener-stocks.html"><span class="prompt">&gt;</span>Stocks</a><a class="nav-link active" href="screener-smallcap.html"><span class="prompt">&gt;</span>Small-Cap</a><a class="nav-link" href="screener-crypto.html"><span class="prompt">&gt;</span>Crypto</a></div><a class="nav-link" href="earnings.html"><span class="prompt">$</span>Earnings</a><a class="nav-link" href="signals.html"><span class="prompt">$</span>Signals</a><a class="nav-link" href="calibration.html"><span class="prompt">$</span>Calibration</a><a class="nav-link" href="portfolio.html"><span class="prompt">$</span>Portfolio</a><a class="nav-link" href="about.html"><span class="prompt">$</span>About</a>
+  <nav class="topnav-links">
+    <a class="nav-link" href="index.html"><span class="prompt">$</span>Briefing</a><a class="nav-link" href="macro.html"><span class="prompt">$</span>Macro</a><a class="nav-link" href="screener-stocks.html"><span class="prompt">$</span>Stocks</a><a class="nav-link active" href="screener-smallcap.html"><span class="prompt">$</span>Small-Cap</a><a class="nav-link" href="screener-crypto.html"><span class="prompt">$</span>Crypto</a><a class="nav-link" href="earnings.html"><span class="prompt">$</span>Earnings</a><a class="nav-link" href="signals.html"><span class="prompt">$</span>Signals</a><a class="nav-link" href="calibration.html"><span class="prompt">$</span>Calibration</a><a class="nav-link" href="portfolio.html"><span class="prompt">$</span>Portfolio</a><a class="nav-link" href="about.html"><span class="prompt">$</span>About</a>
   </nav>
+</header>
+<div class="shell">
   <main class="main">
     <div class="page-header">
       <div class="cmd-line"><span class="prompt">kerem@ai-investor:~$</span> <span class="cmd">$ screener --track=smallcap</span></div>
@@ -426,7 +423,7 @@
               <div class="thesis-body" style="margin-top:6px;"><b>Entry.</b> Avoid - The negative OCF/NI ratio and bearish sentiment indicate underlying issues that may not be resolved in the near term, making RAL a risky investment at this time.</div>
             </div></div>
     <div class="page-footer">
-      <div class="last-updated"><span class="dot"></span>Last updated 12 Aug 2026 12:29 UTC<span class="cursor-block"></span></div>
+      <div class="last-updated"><span class="dot"></span>Last updated 12 Aug 2026 12:38 UTC<span class="cursor-block"></span></div>
       <p style="margin-top:10px;">Research only -- this system never executes a trade, broker keys stay empty on purpose.
       Full architecture and honest results: <a href="https://github.com/cliteka-cell/ai-investor-writeup" target="_blank">ai-investor-writeup</a>.
       Source is private (touches personal data).</p>
