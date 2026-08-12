@@ -318,7 +318,36 @@ tr:hover td { background: rgba(255,255,255,0.015); }
 }
 .section-label:first-child { margin-top: 0; }
 
+/* ── BLOCK GRID ─────────────────────────────────────────────────────── */
+/* Groups several smaller data blocks side by side instead of stacking
+   each as its own full-width section -- a page with 6-8 short sections
+   (a one-line Rates stat, a 3-row Options table, etc.) was pure vertical
+   scroll with the space beside each block sitting empty. Auto-fit lets
+   as many blocks as fit sit in a row, based on their own natural size. */
+.block-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 8px;
+}
+.data-block {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+.data-block .section-label { margin: 0 0 10px; }
+.data-block.full { grid-column: 1 / -1; }
+
 /* ── THESIS / SIGNAL CARD ───────────────────────────────────────────── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+  align-items: start;
+}
 .thesis-card {
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -326,6 +355,7 @@ tr:hover td { background: rgba(255,255,255,0.015); }
   margin-bottom: 12px;
   background: var(--bg2);
 }
+.card-grid .thesis-card { margin-bottom: 0; }
 .thesis-card-top {
   display: flex;
   justify-content: space-between;
