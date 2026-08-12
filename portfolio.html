@@ -6,6 +6,7 @@
 <title>Portfolio · AI Investor</title>
 <meta name="description" content="Simulated paper-trading positions, P&amp;amp;L, and recent trades. No real money.">
 <link rel="stylesheet" href="style.css">
+<script>if(localStorage.getItem('sidebar-collapsed')==='true'){document.documentElement.classList.add('sidebar-collapsed')}</script>
 </head>
 <body>
 <div class="mobile-bar">
@@ -13,13 +14,13 @@
   <button class="mobile-toggle">menu</button>
 </div>
 <div class="shell">
+  <button class="sidebar-toggle" title="Toggle sidebar">&laquo;</button>
   <nav class="sidebar">
     <div class="sidebar-brand">
-      <div class="sidebar-brand-line">$ whoami</div>
       <div class="sidebar-brand-name">AI Investor</div>
       <div class="sidebar-brand-sub">local-LLM research system</div>
     </div>
-    <a class="nav-link" href="index.html"><span class="prompt">$</span>Home</a><a class="nav-link active" href="portfolio.html"><span class="prompt">$</span>Portfolio</a><a class="nav-link" href="macro.html"><span class="prompt">$</span>Macro</a><a class="nav-link" href="screener-stocks.html"><span class="prompt">$</span>Screener</a><div class="nav-sub"><a class="nav-link" href="screener-stocks.html"><span class="prompt">&gt;</span>Stocks</a><a class="nav-link" href="screener-smallcap.html"><span class="prompt">&gt;</span>Small-Cap</a><a class="nav-link" href="screener-crypto.html"><span class="prompt">&gt;</span>Crypto</a></div><a class="nav-link" href="earnings.html"><span class="prompt">$</span>Earnings</a><a class="nav-link" href="signals.html"><span class="prompt">$</span>Signals</a><a class="nav-link" href="calibration.html"><span class="prompt">$</span>Calibration</a><a class="nav-link" href="about.html"><span class="prompt">$</span>About</a>
+    <a class="nav-link" href="index.html"><span class="prompt">$</span>Briefing</a><a class="nav-link" href="macro.html"><span class="prompt">$</span>Macro</a><a class="nav-link" href="screener-stocks.html"><span class="prompt">$</span>Screener</a><div class="nav-sub"><a class="nav-link" href="screener-stocks.html"><span class="prompt">&gt;</span>Stocks</a><a class="nav-link" href="screener-smallcap.html"><span class="prompt">&gt;</span>Small-Cap</a><a class="nav-link" href="screener-crypto.html"><span class="prompt">&gt;</span>Crypto</a></div><a class="nav-link" href="earnings.html"><span class="prompt">$</span>Earnings</a><a class="nav-link" href="signals.html"><span class="prompt">$</span>Signals</a><a class="nav-link" href="calibration.html"><span class="prompt">$</span>Calibration</a><a class="nav-link active" href="portfolio.html"><span class="prompt">$</span>Portfolio</a><a class="nav-link" href="about.html"><span class="prompt">$</span>About</a>
   </nav>
   <main class="main">
     <div class="page-header">
@@ -94,7 +95,7 @@
             <td class="muted-text" style="font-size:12px;">New conviction pick, sized by conviction + inverse volatility.</td><td>2026-07-19</td></tr><tr><td class="neg-text">SELL</td><td>AIZ</td><td class="num">$161.73</td>
             <td class="muted-text" style="font-size:12px;">Dropped from the large-cap screener entirely (was high conviction).</td><td>2026-07-19</td></tr></tbody></table></div>
     <div class="page-footer">
-      <div class="last-updated"><span class="dot"></span>Last updated 12 Aug 2026 07:38 UTC<span class="cursor-block"></span></div>
+      <div class="last-updated"><span class="dot"></span>Last updated 12 Aug 2026 07:55 UTC<span class="cursor-block"></span></div>
       <p style="margin-top:10px;">Research only -- this system never executes a trade, broker keys stay empty on purpose.
       Full architecture and honest results: <a href="https://github.com/cliteka-cell/ai-investor-writeup" target="_blank">ai-investor-writeup</a>.
       Source is private (touches personal data).</p>
