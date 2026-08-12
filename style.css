@@ -330,6 +330,12 @@ tr:hover td { background: rgba(255,255,255,0.015); }
   min-width: 0;
 }
 .stack .data-block { margin-bottom: 0; }
+/* A bare non-stack column (e.g. narrative log + a box stack below it,
+   concatenated as plain block flow) opts out of the grid stretch for the
+   same reason .split-2col's bare children do -- it's normally the taller
+   reference side already, nothing to distribute. */
+.col-flow { min-width: 0; }
+.paired-row > .col-flow { align-self: start; }
 @media (max-width: 880px) {
   .paired-row { grid-template-columns: 1fr; }
 }
