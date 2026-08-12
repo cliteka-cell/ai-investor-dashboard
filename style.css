@@ -330,6 +330,7 @@ tr:hover td { background: rgba(255,255,255,0.015); }
   margin-bottom: 20px;
 }
 .paired-row .stack,
+.paired-row .col-flow,
 .split-2col .stack {
   justify-content: space-between;
 }
@@ -344,12 +345,22 @@ tr:hover td { background: rgba(255,255,255,0.015); }
   min-width: 0;
 }
 .stack .data-block { margin-bottom: 0; }
-/* A bare non-stack column (e.g. narrative log + a box stack below it,
-   concatenated as plain block flow) opts out of the grid stretch for the
-   same reason .split-2col's bare children do -- it's normally the taller
-   reference side already, nothing to distribute. */
-.col-flow { min-width: 0; }
-.paired-row > .col-flow { align-self: start; }
+/* .col-flow (narrative log + a box stack below it) is ALSO a flex column
+   now, not a bare block div -- it used to hard-code "never stretch, I'm
+   always the taller reference side", which broke once .narrative p lost
+   its readable-width cap: on a wide screen the narrative wraps into far
+   fewer lines and can end up SHORTER than the stack on the other side,
+   and a bare block div can't redistribute leftover space the way a flex
+   column can. Making both sides flex columns with the same
+   justify-content: space-between rule means whichever side is naturally
+   shorter is the one that stretches and grows ITS OWN gap to match --
+   the mechanism no longer assumes which physical side is taller. */
+.col-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
 .col-flow .term-window { max-width: none; }
 @media (max-width: 880px) {
   .paired-row { grid-template-columns: 1fr; }
