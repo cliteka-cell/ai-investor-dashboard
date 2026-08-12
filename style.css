@@ -280,6 +280,19 @@ tr:hover td { background: rgba(255,255,255,0.015); }
   .split-2col { grid-template-columns: 1fr; }
 }
 
+/* ── EQUAL 3-COLUMN (1:1:1, e.g. Signals/Calibration) ─────────────────── */
+.grid-3col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 8px;
+}
+.grid-3col > .data-block { margin-bottom: 0; }
+@media (max-width: 1100px) {
+  .grid-3col { grid-template-columns: 1fr; }
+}
+
 /* ── PAIRED ROW (1 big block left, a stack of small ones right) ──────── */
 .paired-row {
   display: grid;
@@ -288,13 +301,13 @@ tr:hover td { background: rgba(255,255,255,0.015); }
   align-items: start;
   margin-bottom: 20px;
 }
-.paired-row .stack {
+.stack {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-width: 0;
 }
 .stack .data-block { margin-bottom: 0; }
-.split-2col > .stack { min-width: 0; }
 @media (max-width: 880px) {
   .paired-row { grid-template-columns: 1fr; }
 }
@@ -327,6 +340,53 @@ tr:hover td { background: rgba(255,255,255,0.015); }
 @media (max-width: 880px) {
   .block-grid { column-count: 1; }
 }
+
+/* ── TABS (Deep Analysis: Stocks/Small-Cap/Crypto) ────────────────────── */
+.tab-buttons {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+.tab-btn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 13px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--accent2); border-bottom-color: var(--accent2); }
+
+/* ── COLLAPSIBLE CONVICTION GROUPS ─────────────────────────────────────── */
+details.conv-group { margin-bottom: 16px; }
+details.conv-group summary {
+  cursor: pointer;
+  font-size: 11px;
+  color: var(--accent2);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  padding: 8px 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  user-select: none;
+}
+details.conv-group summary::-webkit-details-marker { display: none; }
+details.conv-group summary::before {
+  content: '▸';
+  display: inline-block;
+  transition: transform 0.15s ease;
+  font-size: 10px;
+}
+details.conv-group[open] summary::before { transform: rotate(90deg); }
+details.conv-group .card-grid { margin-top: 10px; }
 
 /* ── THESIS / SIGNAL CARD ───────────────────────────────────────────── */
 .card-grid {
